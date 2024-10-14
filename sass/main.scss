@@ -1,0 +1,159 @@
+@use "base";
+
+$accent-color: #0f172a;
+
+%heading {
+  margin: 0px;
+  color: black;
+}
+
+%image {
+  max-width: 35rem;
+  min-width: 20rem;
+  height: auto;
+}
+
+%button {
+  padding: 0.5rem 1rem;
+  background-color: $accent-color;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+%input {
+  padding: 0.5rem 0.8rem;
+  width: 20rem;
+}
+
+@mixin flex($align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.header-container {
+  background-color: $accent-color;
+  h1 {
+    @extend %heading;
+    padding: 1rem 2rem;
+    color: white;
+  }
+}
+
+.hero-container {
+  padding: 3rem 3rem;
+  @include flex($justify: space-around);
+  flex-wrap: wrap;
+
+  div {
+    max-width: 40rem;
+    button {
+      @extend %button;
+    }
+  }
+
+  img {
+    @extend %image;
+    margin: 1rem 0rem;
+  }
+}
+
+.about-container {
+  padding: 0rem 1rem;
+  @include flex($justify: space-around);
+  flex-wrap: wrap;
+
+  div {
+    max-width: 40rem;
+  }
+
+  img {
+    @extend %image;
+  }
+}
+
+.services-container,
+.review-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 3rem;
+  margin: 5rem 0rem;
+
+  div {
+    @include flex($justify: space-around);
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    h1 {
+      margin-bottom: 0rem;
+    }
+  }
+
+  h1 {
+    @extend %heading;
+    margin-inline: auto;
+    padding: 0;
+    margin-bottom: 3rem;
+  }
+}
+
+.card {
+  max-width: 30rem;
+  border: 1px solid black;
+  margin: 0;
+  padding: 1rem;
+  @include flex($justify: none);
+  flex-direction: column;
+  border-radius: 0.7rem;
+}
+
+.review-container {
+  div {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.form-container {
+  padding: 0rem 5rem;
+
+  div {
+    @include flex($justify: space-around);
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  input {
+    @extend %input;
+  }
+
+  textarea {
+    @extend %input;
+    height: 5rem;
+  }
+
+  h1 {
+    @extend %heading;
+  }
+
+  button {
+    @extend %button;
+  }
+}
+
+.footer-container {
+  margin-top: 5rem;
+  background-color: $accent-color;
+  color: white;
+  display: flex;
+  p {
+    padding: 2rem 0rem;
+    margin: 0;
+    margin-inline: auto;
+  }
+}
